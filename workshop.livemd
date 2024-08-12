@@ -1,0 +1,162 @@
+# Elixir Conf Workshop 2024
+
+```elixir
+notebook_path = __ENV__.file |> String.split("#") |> hd()
+
+Mix.install(
+  [
+    {:kino_live_view_native, github: "liveview-native/kino_live_view_native"}
+  ],
+  config: [
+    server: [
+      {ServerWeb.Endpoint,
+       [
+         server: true,
+         url: [host: "localhost"],
+         adapter: Phoenix.Endpoint.Cowboy2Adapter,
+         render_errors: [
+           formats: [html: ServerWeb.ErrorHTML, json: ServerWeb.ErrorJSON],
+           layout: false
+         ],
+         pubsub_server: Server.PubSub,
+         live_view: [signing_salt: "JSgdVVL6"],
+         http: [ip: {0, 0, 0, 0}, port: 4001],
+         check_origin: false,
+         secret_key_base: String.duplicate("a", 64),
+         live_reload: [
+           patterns: [
+             ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg|styles)$",
+             ~r/#{notebook_path}$/
+           ]
+         ]
+       ]}
+    ],
+    kino: [
+      group_leader: Process.group_leader()
+    ],
+    phoenix: [
+      template_engines: [neex: LiveViewNative.Engine]
+    ],
+    phoenix_template: [format_encoders: [swiftui: Phoenix.HTML.Engine]],
+    mime: [
+      types: %{"text/swiftui" => ["swiftui"], "text/styles" => ["styles"]}
+    ],
+    live_view_native: [plugins: [LiveViewNative.SwiftUI]],
+    live_view_native_stylesheet: [
+      attribute_parsers: [
+        style: [
+          livemd: &Server.AttributeParsers.Style.parse/2
+        ]
+      ],
+      content: [
+        swiftui: [
+          "lib/**/*swiftui*",
+          notebook_path
+        ]
+      ],
+      pretty: true,
+      output: "priv/static/assets"
+    ]
+  ],
+  force: true
+)
+```
+
+## Overview
+
+## LiveView Native GO
+
+Use the LiveView Native GO application: https://testflight.apple.com/join/BQp7FQuE
+
+* Open an app on http://localhost:4001 for the Livebook Application
+* Open an app on http://localhost:4000 for the local Phoenix Application
+
+<!-- livebook:{"attrs":"e30","chunks":[[0,85],[87,347],[436,49],[487,51]],"kind":"Elixir.Server.SmartCells.LiveViewNative","livebook_object":"smart_cell"} -->
+
+```elixir
+require Server.Livebook
+import Server.Livebook
+import Kernel, except: [defmodule: 2]
+
+defmodule ServerWeb.ExampleLive.SwiftUI do
+  use ServerNative, [:render_component, format: :swiftui]
+
+  def render(assigns) do
+    ~LVN"""
+    <Text>Hello, from LiveView Native!</Text>
+    """
+  end
+end
+
+defmodule ServerWeb.ExampleLive do
+  use ServerWeb, :live_view
+  use ServerNative, :live_view
+
+  @impl true
+  def render(assigns), do: ~H""
+end
+|> Server.SmartCells.LiveViewNative.register("/")
+
+import Server.Livebook, only: []
+import Kernel
+:ok
+```
+
+## Phoenix Application
+
+To get started with this workshop, you're going to create a Phoenix application set up with LiveView Native from scratch.
+
+Run the following from your command line.
+
+```sh
+mix phx.new chat --no-ecto
+```
+
+This command generates a Phoenix server without a database (which we won't need for this workshop.)
+
+Add the following dependencies to your `mix.exs` file.
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+{:live_view_native, "~> 0.3.0-rc.4"},
+{:live_view_native_stylesheet, "~> 0.3.0-rc.4"},
+{:live_view_native_swiftui, "~> 0.3.0-rc.4"},
+{:live_view_native_live_form, "~> 0.3.0-rc.3"}
+```
+
+Install dependencies.
+
+```sh
+mix deps.get
+```
+
+Run the LVN setup command and follow the instructions.
+
+```sh
+mix lvn.setup
+```
+
+You should be prompted to run two more commands. Answer `Y` (yes) for each prompted step.
+
+```sh
+mix 
+```
+
+## LiveView Native Ecosystem
+
+## Views
+
+## Modifiers
+
+## Attributes
+
+## Cross Platform Chat App Overview
+
+## Hello World
+
+## Navigation
+
+## Forms
+
+## Chat Server
