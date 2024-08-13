@@ -1,0 +1,18 @@
+<Text style={
+    "
+    frame(maxWidth: .infinity, maxHeight: 100);
+    background(.purple);
+    font(.title);
+    "
+}>Chat App</Text>
+
+<ScrollView>
+    <VStack spacing={20}>
+        <VStack alignment="leading" :for={message <- @messages}>
+            <Text><%= message.name %> <%= message.platform %></Text>
+            <Text><%= message.content %></Text>
+        </VStack>
+    </VStack>
+</ScrollView>
+
+<Spacer/>
