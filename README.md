@@ -1,5 +1,6 @@
+# Elixir Conf 2024: LiveView Native (WIP)
 
-# Elixir Conf 2024: LiveView Native
+This workshop is a **WORK IN PROGRESS**.
 
 Welcome to Elixir Conf US 2024! These materials are for the **Unlock the Power of LiveView Native: Build Cross-Platform Applications with Ease** Workshop hosted by Brian Cardarella, Brooklin Myers, and Carson Katri.
 
