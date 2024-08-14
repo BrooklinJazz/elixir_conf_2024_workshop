@@ -553,6 +553,4 @@ You're going to create a form that users can submit messages to. This form shoul
 
 ## Bonus: Web Template
 
-## Bonus: Navigation
-
 ## Further Resources

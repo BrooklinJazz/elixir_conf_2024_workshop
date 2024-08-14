@@ -13,13 +13,13 @@ defmodule ChatWeb.ChatLive do
 
     os = socket.assigns["_interface"]["os"] || "web"
 
-    messages =
-      List.duplicate(%{content: lorem_ipsum, name: "Person 1", os: "web"}, 20)
+    # messages =
+    #   List.duplicate(%{content: lorem_ipsum, name: "Person 1", os: "web"}, 20)
 
     socket =
       socket
       |> assign(:form, to_form(%{"name" => "Brook"}, as: "chat-form"))
-      |> assign(:messages, messages)
+      |> assign(:messages, [])
       |> assign(:os, os)
 
     {:ok, socket}
