@@ -5,6 +5,12 @@ defmodule ChatWeb.Styles.App.SwiftUI do
   # Refer to your client's documentation on what the proper syntax
   # is for defining rules within classes
   ~SHEET"""
+  "my-class" do
+    font(.headline);
+    foregroundStyle(.blue);
+    frame(maxWidth: .infinity);
+    padding();
+  end
   """
 
   # If you need to have greater control over how your style rules are created

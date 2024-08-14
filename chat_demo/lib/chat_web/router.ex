@@ -6,11 +6,14 @@ defmodule ChatWeb.Router do
       "html",
       "swiftui"
     ]
+
     plug :fetch_session
     plug :fetch_live_flash
+
     plug :put_root_layout,
       html: {ChatWeb.Layouts, :root},
       swiftui: {ChatWeb.Layouts.SwiftUI, :root}
+
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end

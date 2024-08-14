@@ -1,18 +1,26 @@
 <Text style={
     "
-    frame(maxWidth: .infinity, maxHeight: 100);
-    background(.purple);
     font(.title);
     "
 }>Chat App</Text>
 
 <ScrollView>
     <VStack spacing={20}>
-        <VStack alignment="leading" :for={message <- @messages}>
-            <Text><%= message.name %> <%= message.platform %></Text>
+    <%= for message <- @messages do %>
+        <VStack alignment="leading" style="frame(maxWidth: .infinity, alignment: .leading)">
+            <Text><%= message.name %> (<%= message.os %>)</Text>
             <Text><%= message.content %></Text>
         </VStack>
+    <% end %>
     </VStack>
 </ScrollView>
 
-<Spacer/>
+<.simple_form for={@form} id="form" phx-submit="send-message">
+    <.input field={@form[:name]} type="TextField" placeholder="Name..."/>
+    <.input field={@form[:content]} type="TextField" placeholder="Say..." />
+    <:actions>
+    <.button type="submit">
+        Send
+    </.button>
+    </:actions>
+</.simple_form>
