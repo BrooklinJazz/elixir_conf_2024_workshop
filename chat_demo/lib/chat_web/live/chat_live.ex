@@ -7,11 +7,11 @@ defmodule ChatWeb.ChatLive do
       ChatWeb.Endpoint.subscribe("messages")
     end
 
-    lorem_ipsum = """
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante interdum, pellentesque dolor at, rhoncus sapien. Praesent sed augue ex. Donec dignissim at turpis vitae convallis.
-    """
-
     os = socket.assigns["_interface"]["os"] || "web"
+
+    # lorem_ipsum = """
+    # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante interdum, pellentesque dolor at, rhoncus sapien. Praesent sed augue ex. Donec dignissim at turpis vitae convallis.
+    # """
 
     # messages =
     #   List.duplicate(%{content: lorem_ipsum, name: "Person 1", os: "web"}, 20)

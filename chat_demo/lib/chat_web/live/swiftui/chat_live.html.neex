@@ -1,16 +1,10 @@
-<Text style={
-    "
-    font(.title);
-    "
-}>Chat App</Text>
+<Text style={"font(.title);"}>Chat App</Text>
 
 <ScrollView>
-    <VStack spacing={20}>
+    <VStack alignment="leading" style="frame(maxWidth: .infinity, alignment: .leading)">
     <%= for message <- @messages do %>
-        <VStack alignment="leading" style="frame(maxWidth: .infinity, alignment: .leading)">
-            <Text><%= message.name %> (<%= message.os %>)</Text>
-            <Text><%= message.content %></Text>
-        </VStack>
+        <Text><%= message.name %> (<%= message.os %>)</Text>
+        <Text style="padding(.bottom, 10)"><%= message.content %></Text>
     <% end %>
     </VStack>
 </ScrollView>
