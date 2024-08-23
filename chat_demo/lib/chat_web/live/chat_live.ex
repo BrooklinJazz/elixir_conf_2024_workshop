@@ -7,20 +7,17 @@ defmodule ChatWeb.ChatLive do
       ChatWeb.Endpoint.subscribe("messages")
     end
 
-    os = socket.assigns["_interface"]["os"] || "web"
-
     # lorem_ipsum = """
     # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante interdum, pellentesque dolor at, rhoncus sapien. Praesent sed augue ex. Donec dignissim at turpis vitae convallis.
     # """
 
     # messages =
-    #   List.duplicate(%{content: lorem_ipsum, name: "Person 1", os: "web"}, 20)
+    #   List.duplicate(%{content: lorem_ipsum, name: "Person 1"}, 20)
 
     socket =
       socket
-      |> assign(:form, to_form(%{"name" => "Brook"}, as: "chat-form"))
+      |> assign(:form, to_form(%{"name" => "Anonymous"}, as: "chat-form"))
       |> assign(:messages, [])
-      |> assign(:os, os)
 
     {:ok, socket}
   end
@@ -31,7 +28,7 @@ defmodule ChatWeb.ChatLive do
         socket
       ) do
 
-    message = %{content: content, name: name, os: socket.assigns.os}
+    message = %{content: content, name: name}
 
     socket =
       socket
@@ -47,24 +44,24 @@ defmodule ChatWeb.ChatLive do
     {:noreply, assign(socket, messages: [message | socket.assigns.messages])}
   end
 
-  def render(assigns) do
-    ~H"""
-    <h1 class="text-2xl">Chat App</h1>
-    <section class="h-[400px] overflow-y-scroll">
-    <%= for message <- @messages do %>
-      <p><%= message.name %> (<%= message.os %>)</p>
-      <p class="mb-2"><%= message.content %></p>
-    <% end %>
-    </section>
-     <.simple_form for={@form} id="form" phx-submit="send-message">
-      <.input field={@form[:name]} placeholder="From..." />
-      <.input field={@form[:content]} placeholder="Say..." />
-      <:actions>
-        <.button type="submit">
-          Send Message
-        </.button>
-      </:actions>
-    </.simple_form>
-    """
-  end
+  # def render(assigns) do
+  #   ~H"""
+  #   <h1 class="text-2xl">Chat App</h1>
+  #   <section class="h-[400px] overflow-y-scroll">
+  #   <%= for message <- @messages do %>
+  #     <p><%= message.name %></p>
+  #     <p class="mb-2"><%= message.content %></p>
+  #   <% end %>
+  #   </section>
+  #    <.simple_form for={@form} id="form" phx-submit="send-message">
+  #     <.input field={@form[:name]} placeholder="From..." />
+  #     <.input field={@form[:content]} placeholder="Say..." />
+  #     <:actions>
+  #       <.button type="submit">
+  #         Send Message
+  #       </.button>
+  #     </:actions>
+  #   </.simple_form>
+  #   """
+  # end
 end

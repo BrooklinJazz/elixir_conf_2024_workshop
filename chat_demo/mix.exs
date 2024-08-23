@@ -58,7 +58,8 @@ defmodule Chat.MixProject do
       {:live_view_native, "~> 0.3.0-rc.4"},
       {:live_view_native_stylesheet, "~> 0.3.0-rc.4"},
       {:live_view_native_swiftui, "~> 0.3.0-rc.4"},
-      {:live_view_native_live_form, "~> 0.3.0-rc.3"}
+      {:live_view_native_live_form, "~> 0.3.0-rc.3"},
+      {:live_view_native_html, "~> 0.3.0-rc.1"}
     ]
   end
 

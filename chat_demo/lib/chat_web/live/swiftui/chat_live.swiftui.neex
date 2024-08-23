@@ -1,0 +1,20 @@
+<%!-- <Text style={"font(.title);"}>Chat App</Text> --%>
+
+<ScrollView style='navigationTitle("Chat App"); safeAreaInset(edge: .bottom, content: :form);'>
+    <VStack alignment="leading" style="frame(maxWidth: .infinity, alignment: .leading)">
+    <%= for message <- @messages do %>
+        <Text style="font(.title2)"><%= message.name %></Text>
+        <Text style="padding(.bottom, 10);" markdown={message.content}/>
+    <% end %>
+    </VStack>
+    <.simple_form template="form" for={@form} id="form" phx-submit="send-message" style="frame(height: 250)">
+        <.input field={@form[:name]} type="TextField" placeholder="Name..."/>
+        <.input field={@form[:content]} type="TextEditor"/>
+        <:actions>
+        <.button type="submit">
+            Send
+        </.button>
+        </:actions>
+    </.simple_form>
+</ScrollView>
+
