@@ -69,8 +69,7 @@ config :mime, :types, %{
 
 config :live_view_native,
   plugins: [
-    LiveViewNative.SwiftUI,
-    LiveViewNative.HTML
+    LiveViewNative.SwiftUI
   ]
 
 config :phoenix, :template_engines, neex: LiveViewNative.Engine

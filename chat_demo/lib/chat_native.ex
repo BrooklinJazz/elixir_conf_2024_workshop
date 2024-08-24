@@ -35,11 +35,9 @@ defmodule ChatNative do
     quote do
       use LiveViewNative.LiveView,
         formats: [
-          :html,
           :swiftui
         ],
         layouts: [
-          html: {ChatWeb.Layouts, :app},
           swiftui: {ChatWeb.Layouts.SwiftUI, :app}
         ]
 
