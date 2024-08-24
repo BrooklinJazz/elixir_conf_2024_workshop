@@ -75,14 +75,6 @@ Welcome to Elixir Conf US 2024! These materials are for the **Unlock the Power o
 
 <!-- livebook:{"break_markdown":true} -->
 
-### Assumptions
-
-This workshop assumes the attendee has some foundational knowledge on the command line, using a code editor, and Phoenix LiveView.
-
-However, your instructors will be happy to support along the way and fill in any gaps that the reading material doesn't cover so that you can get the most out of the workshop.
-
-<!-- livebook:{"break_markdown":true} -->
-
 ### Prerequisites
 
 To complete this workshop you'll need:
@@ -93,17 +85,17 @@ To complete this workshop you'll need:
 * [Livebook](https://livebook.dev/#install)
 * [LVN GO](https://apps.apple.com/ca/app/lvn-go/id6614695506)
 
+This workshop assumes the attendee has some foundational knowledge on the command line, using a code editor, and Phoenix + LiveView.
+
+However, your instructors will be happy to support you and fill in any gaps that the reading material doesn't cover so that you can get the most out of the workshop.
+
 <!-- livebook:{"break_markdown":true} -->
 
 ### Class Format
 
 This workshop focused on practical and hands-on application of concepts. Workshop attendees will be given time to complete exercises using the provided reading material. The instructor will also provide an explanation of the concepts required to complete each exercise and answer any questions attendees have.
 
-Since attendees may come from a wide variety of backgrounds and experience levels, we expect that attendees to complete work at different speeds. To account for this, and our time limit of 6 hours, we've provided ETA times that we'll use to pace the workshop. These ETAs are not expectation of how long each exercise *should* take students to complete, merely how long we have alloted given our time constraints. Everyone works at a different pace!
-
-The Instructor will ask an attendee who has completed the current exercise to demonstrate their solution (time permitting) and the group will discuss (asking questions, considering alternative implementation options, explaining concepts to eachother, etc)
-
-Attendees who have not completed the exercise will then copy the example solution and move on to the next exercise. We hope these attendees will return to the workshop exercises later and complete them on their own time.
+If time allows, the Instructor will ask an attendee who has completed the current exercise to demonstrate their solution and the group will discuss (asking questions, considering alternative implementation options, explaining concepts to each other, etc.)
 
 <!-- livebook:{"break_markdown":true} -->
 
@@ -111,7 +103,7 @@ Attendees who have not completed the exercise will then copy the example solutio
 
 By the end of this workshop, you will have created a cross-platform chat application built using Phoenix and LiveView Native. This Livebook provides reading material and examples the explain and demonstrate the concepts necessary to complete each exercise.
 
-Visit https://chat-demo.fly.dev/ on your browser, and/or enter the URL into the LiveView Native GO app to see the application we'll build in this workshop.
+Visit https://chat-demo.fly.dev/ on your browser, and/or enter the URL into the LVN GO app to see the application we'll build in this workshop.
 
 <!-- livebook:{"break_markdown":true} -->
 
@@ -121,28 +113,42 @@ If you are stuck on an exercise or are unsure how to begin, refer to the reading
 
 Of course, you should also rely upon your workshop instructors, as well as your fellow attendees for help!
 
-## LiveView Native Ecosystem Overview
+## Timed Exercises
 
-LiveView Native is a platform for building native applications using Elixir and Phoenix LiveView. It allows a single LiveView to serve both web and non-web clients by transforming platform-specific template code into native UIs.
+### Workshop Pace and Expectations
 
-The LiveView Native Ecosystem is split into multiple different libraries. Here are a few of the LiveView Native libraries you may want to be aware of for some context on this workshop.
+We recognize that attendees have diverse backgrounds and work at different speeds. To keep the workshop on track, we've set estimated times (ETAs) for each exercise. These ETAs are meant to help us manage our time, not to dictate how long it should take you to complete the work.
 
-* [LiveView Native](https://github.com/liveview-native/live_view_native) the server-side portion of LiveView Native. Includes the functionality for render components, setup tasks, etc.
-* [LiveView Native Core](https://github.com/liveview-native/liveview-native-core) the core library that powers other native client libraries.
-* [LiveView Native SwiftUI Client](https://github.com/liveview-native/liveview-client-swiftui) the SwiftUI client library that handles rendering the platform-specific template code for native iPhone, iPad, AppleTV, Apple Watch, MacOS, or Apple Vision Pro experience.
-* [LiveView Native Jetpack Client](https://github.com/liveview-native/liveview-client-jetpack) the SwiftUI client library that handles rendering the platform-specific template code for Android devices.
-* [LiveView Native Live Form](https://github.com/liveview-native/liveview-native-live-form) adds support for HTML-style forms on native platforms.
-* [LiveView Native Stylesheets](https://github.com/liveview-native/live_view_native_stylesheet) provides stylesheet primitives for LiveView Native.
+If you don't finish an exercise within the allotted time, simply copy the example solution and move on. You can revisit and complete the exercises later at your own pace. Don’t worry if you end up copying many of the solutions—this workshop covers a lot, and it's not realistic to master everything in one day!
 
-This list is only to provide a high level overview of the LVN ecosystem. You do not need to remember or be familiar with these libraries to complete this workshop.
+Exercises will indicate whether they should be completed in Livebook or within the Phoenix Chat application.
 
-## VS Code Extension
+<!-- livebook:{"break_markdown":true} -->
+
+### Exercises
+
+> The instructor will use these ETA times to pace the exercise. They may change times depending on class flow.
+
+* [Chat: Phoenix App Setup](#chat:-phoenix-app-setup) (Required)
+* [Chat: Hello World](#chat:-hello-world) (Required)
+* [Livebook: Syntax Conversion](#livebook:-syntax-conversion) (60 mins)
+* [Chat: Header](#chat:-header) (10 mins)
+* [Chat: Messages](#chat:-messages) (20 mins)
+* [Livebook: Live Form Exercise](#livebook:-live-form-exercise) (40 mins)
+* [Chat: Message Form](#chat:-message-form) (50 mins)
+* [Chat: Web Template](#chat:-web-template) (20 mins)
+* [Chat: PubSub](#chat:-pub-sub) (10 mins)
+* [Chat: Styling](#chat:-styling) (60 mins)
+
+Allotted exercise time: **~4.5 hours.**
+
+## Prerequisite: VS Code Extension
 
 If you're using visual studio code, we recommend you install the LiveView Native extension to access useful features such as syntax highlighting and autocomplete in your code editor.
 
 ![LiveView Native Extension on Visual Studio Code](files/LiveViewNativeVSCExtension.png)
 
-## LVN GO
+## Prerequisite: LVN GO
 
 Make sure you have the [LVN GO](https://apps.apple.com/ca/app/lvn-go/id6614695506) application. You can run this application on a connected iOS device, or on your macOS computer, then execute the LiveView Native code cell below.
 
@@ -196,13 +202,6 @@ We're going to create a **Chat application** that looks like the following:
 <!-- livebook:{"break_markdown":true} -->
 
 During this workshop, you'll build each feature of the application step-by-step.
-
-* [Chat: Phoenix App Setup](#chat:-phoenix-app-setup)
-* [Chat: Hello World](#chat:-hello-world)
-* [Chat: Header](#chat:-header)
-* [Chat: Messages](#chat:-messages)
-* [Chat: Message Form](#chat:-message-form)
-* [Chat: PubSub](#chat:-pub-sub)
 
 Depending on time available, we'll also add some bonus features and improvements to our application.
 
@@ -322,7 +321,7 @@ You should see `Hello world!` in your application.
   <img style="width: 100%; height: 100%; object-fit: contain" alt="Hello World" src="files/HelloWorld.png"/>
 </div>
 
-## Views
+## Resource: Views
 
 Views are the building blocks of a SwiftUI interface. Views are comperable to HTML elements on the web.
 
@@ -349,7 +348,7 @@ There are many SwiftUI Views supported by LiveView Native. For this workshop, yo
 
 For more information on views, you can refer to the [LVN Views guide](https://hexdocs.pm/live_view_native_swiftui/0.3.0-rc.4/swiftui-views.html)
 
-## Modifiers
+## Resource: Modifiers
 
 Modifiers in SwiftUI are methods that you can call on views to adjust their appearance or behavior. They return a new view with the modifier applied, allowing you to chain multiple modifiers together to compose complex views.
 
@@ -460,7 +459,7 @@ import Kernel
 :ok
 ```
 
-## Attributes
+## Resource: Attributes
 
 In SwiftUI, both attributes and modifiers are used to describe and alter the appearance and behavior of views, but they serve different purposes and are used in different ways.
 
@@ -488,7 +487,7 @@ In LiveView Native, SwiftUI attributes function similarly to HTML attributes. Th
 </VStack>
 ```
 
-## Syntax Conversion
+## Livebook: Syntax Conversion Exercise
 
 Other than the templating language, you can use all of the same LiveView concepts for building interactive UIs. If you're already familiar with LiveView, then the main learning curve for LiveView Native is the native client language (SwiftUI in our case) and how to convert those native examples into LiveView Native syntax.
 
@@ -498,7 +497,7 @@ You can use the [Syntax Conversion Cheatsheet](https://hexdocs.pm/live_view_nati
 
 <!-- livebook:{"break_markdown":true} -->
 
-### Syntax Conversion Exercise
+### Exercise
 
 Convert the following SwiftUI code into LiveView native code.
 
@@ -658,7 +657,7 @@ If you aren't already familiar with comprehensions within a template, remember t
 
 </details>
 
-## LiveView Native Live Form
+## Livebook: Live Form Exercise
 
 The [LiveView Native Form](https://github.com/liveview-native/liveview-native-live-form) library simplifies the creation of forms using syntax very similar to Phoenix forms.
 
@@ -698,7 +697,7 @@ Notice how similar the two forms are. The `type` attribute is the main differenc
 
 <!-- livebook:{"break_markdown":true} -->
 
-### Form Exercise
+### Exercise
 
 1. Find the `attr` definition inside of the `core_components.swiftui.ex` file and identify the allowed values.
 2. Change the `TextField` value for the `type` attribute to a different valid value.
@@ -837,14 +836,6 @@ Now use the `.simple_form` component to create a form with a `:name` and `:conte
 
 The form should send a `"send-message"` event on submit to match the handlers you just created.
 
-> Recommended Solution:
-> 
-> In the `chat_live.swiftui.neex` file, create a `.simple_form` component with a `phx-submit="send-message"` attribute. The form also needs the `for` and `id` html attributes as seen in the examples above.
-> 
-> Nest two `.input` components inside of the form. One input should be for the `:name` field and use the `TextField` value for the `type` attribute. The other input should be for the `:content` field and use the `TextEditor` value for the `type` attribute.
-> 
-> Finally, nest a `.button` component within a `:actions` slot as seen in the examples above.
-
 <details style="background-color: lightgreen; padding: 1rem; margin: 1rem 0;">
 <summary>Example Solution</summary>
 
@@ -900,6 +891,8 @@ def render(assigns) do
   """
 end
 ```
+
+That's it! Now visit http://localhost:4000 in the browser to see the HTML template in action.
 
 ## Chat: PubSub
 
@@ -974,7 +967,7 @@ end
 
 That's all it takes to make your application work in real-time across multiple platforms!
 
-## Named Content Areas
+## Resource: Named Content Areas
 
 Modifiers can sometimes accept a View within a [named content area](https://hexdocs.pm/live_view_native_swiftui/0.3.0/syntax_conversion.html#named-content-areas). For example, here's how the `safeAreaInset` modifiers allows us to overlay a view ontop of another view.
 
@@ -997,7 +990,9 @@ Here's how the above code would look in LiveView Native
 </ScrollView>
 ```
 
-## Bonus: Styling
+You'll need to understand these named content areas for the next exercise.
+
+## Chat: Styling
 
 We're going to use the following modifiers to improve the styling of our chat application.
 
@@ -1114,7 +1109,7 @@ Here's how your SwiftUI template should look after all of these styling changes.
 </ScrollView>
 ```
 
-## Bonus: Markdown Support
+## Chat: Markdown Support (Bonus)
 
 The `Text` view includes [markdown support](https://hexdocs.pm/live_view_native_swiftui/0.3.0-rc.1/text.html#markdown) through the `markdown` attribute.
 
@@ -1131,11 +1126,11 @@ Instead of rendering the message content as a child to the `Text` view, use the 
 
 Keep in mind that in a real application we would also need to implement markdown rendering for html, but that's beyond the scope of this workshop.
 
-## Stretch Goal
+## Chat: Stretch Goal (Bonus)
 
-Want to keep extending your LiveView Native skills? We've built this Chat app to render messages at the top of the chat. Try rendering the messages at the bottom, and make it so that the ScrollView scrolls to the bottom whenever a new message is created so that the latest message is always visible.
+Want to keep extending your LiveView Native skills? For simplicity's sake, the chat app currently renders messages at the top of the app. Try rendering the messages at the bottom, and make it so that the ScrollView scrolls to the bottom whenever a new message is created so that the latest message is always visible.
 
-## Further Resources
+## Resource: Continued Learning
 
 These resources are not required to complete this workshop, but may be useful to continue your LiveView Native learning journey.
 
@@ -1164,3 +1159,20 @@ We've created a series of interactive guides using Livebook. Checkout the **Live
 Have a question or want some help with LiveView Native?
 
 Check out the #liveview-native channel on the [Elixir Lang Slack](https://elixir-lang.slack.com/).
+
+<!-- livebook:{"break_markdown":true} -->
+
+### LiveView Native Ecosystem Overview
+
+LiveView Native is a platform for building native applications using Elixir and Phoenix LiveView. It allows a single LiveView to serve both web and non-web clients by transforming platform-specific template code into native UIs.
+
+The LiveView Native Ecosystem is split into multiple different libraries. Here are a few of the LiveView Native libraries you may want to be aware of for some context on this workshop.
+
+* [LiveView Native](https://github.com/liveview-native/live_view_native) the server-side portion of LiveView Native. Includes the functionality for render components, setup tasks, etc.
+* [LiveView Native Core](https://github.com/liveview-native/liveview-native-core) the core library that powers other native client libraries.
+* [LiveView Native SwiftUI Client](https://github.com/liveview-native/liveview-client-swiftui) the SwiftUI client library that handles rendering the platform-specific template code for native iPhone, iPad, AppleTV, Apple Watch, MacOS, or Apple Vision Pro experience.
+* [LiveView Native Jetpack Client](https://github.com/liveview-native/liveview-client-jetpack) the SwiftUI client library that handles rendering the platform-specific template code for Android devices.
+* [LiveView Native Live Form](https://github.com/liveview-native/liveview-native-live-form) adds support for HTML-style forms on native platforms.
+* [LiveView Native Stylesheets](https://github.com/liveview-native/live_view_native_stylesheet) provides stylesheet primitives for LiveView Native.
+
+This list is only to provide a high level overview of the LVN ecosystem. You do not need to remember or be familiar with these libraries to complete this workshop.
