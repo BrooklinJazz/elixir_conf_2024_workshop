@@ -1,6 +1,4 @@
-# Elixir Conf 2024: LiveView Native (WIP)
-
-This workshop is a **WORK IN PROGRESS**.
+# Elixir Conf 2024: LiveView Native
 
 Welcome to Elixir Conf US 2024! These materials are for the **Unlock the Power of LiveView Native: Build Cross-Platform Applications with Ease** Workshop hosted by Brian Cardarella, Brooklin Myers, and Carson Katri.
 
@@ -21,8 +19,8 @@ What you’ll gain:
 * [Elixir & Erlang](https://elixir-lang.org/install.html)
 * [Phoenix](https://hexdocs.pm/phoenix/installation.html)
 * [Livebook](https://livebook.dev/#install)
-* [LiveView Native GO](https://testflight.apple.com/join/BQp7FQuE)
+* [LVN GO](https://apps.apple.com/ca/app/lvn-go/id6614695506)
 
-## Getting started
+## Getting Started
 
 To get started with this workshop, run the `workshop.livemd` file in Livebook then follow the instructions provided.
