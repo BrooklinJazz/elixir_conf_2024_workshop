@@ -374,10 +374,10 @@ You can implement modifiers as classes inside of the generated `app.swiftui.ex` 
 ```elixir
 ~SHEET"""
 "my-class" do
-  font(.title);
-  foregroundStyle(.blue);
-  frame(maxWidth: .infinity);
-  padding();
+  font(.title)
+  foregroundStyle(.blue)
+  frame(maxWidth: .infinity)
+  padding()
 end
 """
 ```
