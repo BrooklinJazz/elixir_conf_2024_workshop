@@ -1,5 +1,5 @@
 <ScrollView style='navigationTitle("Chat App"); safeAreaInset(edge: .bottom, content: :form);'>
-    <VStack alignment="leading" style="frame(maxWidth: .infinity, alignment: .leading);">
+    <VStack style="frame(maxWidth: .infinity, alignment: .leading);">
     <%= for message <- @messages do %>
         <Text style="font(.title2);"><%= message.name %></Text>
         <Text style="padding(.bottom, 10);" markdown={message.content}/>
