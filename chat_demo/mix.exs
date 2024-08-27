@@ -55,10 +55,10 @@ defmodule Chat.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
-      {:live_view_native, "~> 0.3.0-rc.4"},
-      {:live_view_native_stylesheet, "~> 0.3.0-rc.4"},
-      {:live_view_native_swiftui, "~> 0.3.0-rc.4"},
-      {:live_view_native_live_form, "~> 0.3.0-rc.3"}
+      {:live_view_native, "~> 0.3.0"},
+      {:live_view_native_stylesheet, "~> 0.3.0"},
+      {:live_view_native_swiftui, "~> 0.3.0"},
+      {:live_view_native_live_form, "~> 0.3.0"}
     ]
   end
 
