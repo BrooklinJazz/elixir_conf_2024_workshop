@@ -822,7 +822,7 @@ Then, add the handler for sending messages.
       socket
       |> assign(:messages, [message | socket.assigns.messages])
       # Optional: this preserves the user's name between sending messages, but clears the content field.
-      |> assign(:form, to_form(%{"name" => name}, as: "chat-form"))
+      |> assign(:form, to_form(%{"content" => ""}, as: "chat-form"))
 
     {:noreply, socket}
   end
