@@ -222,10 +222,10 @@ Add the following dependencies to your `mix.exs` file.
 <!-- livebook:{"force_markdown":true} -->
 
 ```elixir
-{:live_view_native, "~> 0.3.0-rc.4"},
-{:live_view_native_stylesheet, "~> 0.3.0-rc.4"},
-{:live_view_native_swiftui, "~> 0.3.0-rc.4"},
-{:live_view_native_live_form, "~> 0.3.0-rc.3"}
+{:live_view_native, "~> 0.3.0"},
+{:live_view_native_stylesheet, "~> 0.3.0"},
+{:live_view_native_swiftui, "~> 0.3.0"},
+{:live_view_native_live_form, "~> 0.3.0"}
 ```
 
 Install dependencies.
